@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Hub</title>
+    <style>
+        body { margin: 0; background: black; color: #00ff00; font-family: 'Courier New', monospace; padding: 20px; }
+        nav a { color: #00ff00; margin-right: 15px; text-decoration: none; border: 1px solid #00ff00; padding: 5px; }
+        .terminal { border: 1px solid #00ff00; padding: 20px; margin-top: 30px; box-shadow: 0 0 10px #00ff00; }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/crypto">Crypto</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <div class="terminal">
+        <h2>> CRYPTO_MODULE_READY</h2>
+        <p>Secure connection established...</p>
+        <p class="blink">_</p>
+        <p>Integration: Pledge.to Active</p>
+    </div>
+</body>
+</html>
