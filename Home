@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRAGE | Home</title>
+    <style>
+        body { margin: 0; background: #0f172a; color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+        nav { position: absolute; top: 20px; }
+        nav a { color: #38bdf8; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        h1 { font-size: 3rem; color: #38bdf8; }
+        .hero { text-align: center; border: 1px solid #1e293b; padding: 40px; border-radius: 20px; background: #1e293b; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/profile">Profile</a>
+        <a href="/crypto">Crypto</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <div class="hero">
+        <h1>MIRAGE PROJECT</h1>
+        <p>Next-generation web development and crypto tools.</p>
+    </div>
+</body>
+</html>
