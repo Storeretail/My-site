@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John | MIRAGE Profile</title>
+    <script src="https://unpkg.com/@trustwallet/wallet-core@latest/dist/lib/wallet-core.js"></script>
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111111;
+            --accent: #ff3333;
+            --text: #ffffff;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: var(--card);
+            border: 1px solid #222;
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
+        }
+        h1 { margin: 0; font-size: 1.8rem; letter-spacing: -0.5px; }
+        .username { color: var(--accent); font-weight: 600; margin-bottom: 20px; display: block; }
+        .bio { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 30px; }
+        .wallet-display {
+            background: #000;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            word-break: break-all;
+            text-align: left;
+            margin-bottom: 20px;
+            min-height: 50px;
+            color: #ccc;
+        }
+        button {
+            background: var(--text);
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+        button:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+        .footer { font-size: 0.7rem; color: #444; margin-top: 25px; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="avatar">J</div>
+        <h1>John Doe</h1>
+        <span class="username">@john_mirage</span>
+        
+        <p class="bio">Building the future of decentralized identity. Software Entrepreneur & MIRAGE Partner.</p>
+
+        <div class="wallet-display" id="wallet-info">
+            Wallet status: Offline
+        </div>
+
+        <button onclick="initJohnWallet()">INITIALIZE MIRAGE WALLET</button>
+
+        <div class="footer">Powered by MIRAGE Protocol</div>
+    </div>
+
+    <script>
+        async function initJohnWallet() {
+            const display = document.getElementById('wallet-info');
+            display.innerText = "Generating secure keys...";
+            
+            try {
+                const core = await WalletCore.init();
+                const wallet = core.HDWallet.create(12, "");
+                const address = wallet.getAddressForCoin(core.CoinType.ethereum);
+                
+                display.innerHTML = `
+                    <span style="color: #555">MNEMONIC:</span><br>${wallet.mnemonic()}<br><br>
+                    <span style="color: #555">ETH ADDRESS:</span><br>${address}
+                `;
+            } catch (e) {
+                display.innerText = "Error: Protocol failed to load.";
+            }
+        }
+    </script>
+</body>
+</html>
